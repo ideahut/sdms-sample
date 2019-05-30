@@ -1,0 +1,857 @@
+{
+	"info": {
+		"_postman_id": "213908e6-d3a5-44f8-985b-cf583b80e243",
+		"name": "sdms-sample",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "ACCESS",
+			"item": [
+				{
+					"name": "Key",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Access-Key",
+								"value": "1e071371-6ca0-11e9-b5aa-3c970ebf4a1e",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{api}}/access/key",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"access",
+								"key"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Info",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Access-Key",
+								"value": "1e071371-6ca0-11e9-b5aa-3c970ebf4a1e",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "text/xml",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{api}}/access/info",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"access",
+								"info"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Access-Key",
+								"value": "1e071371-6ca0-11e9-b5aa-3c970ebf4a1e",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "text"
+								},
+								{
+									"key": "authcode",
+									"value": "bba0cb98cffaf614c799f2576607d9bb5dddaf898f064eb70a6c6a6fb63fa147",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{api}}/access/login",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"access",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Access-Key",
+								"value": "3099ae57-5083-11e9-939e-3c970ebf4a1e",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{api}}/access/logout",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"access",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Renew",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Access-Key",
+								"value": "9d3cd5ee-5082-11e9-939e-3c970ebf4a1e",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{api}}/access/renew",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"access",
+								"renew"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "TEST",
+			"item": [
+				{
+					"name": "HELO",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/xml",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json;utf-8",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<object>\n\t<entity>User</entity>\n\t<page>\n\t\t<index>1</index>\n\t\t<size>10</size>\n\t\t<count>false</count>\n\t</page>\n\t<filter>\n\t\t<username__like>admin</username__like>\n\t</filter>\n\t<order>-createdAt</order>\n\t<order>id</order>\n\t<field>username</field>\n\t<field>role</field>\n</object>"
+						},
+						"url": {
+							"raw": "{{api}}/test/helo",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"test",
+								"helo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "REPO",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/xml",
+								"disabled": true
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json;utf-8",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{api}}/test/repo",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"test",
+								"repo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "HELO_IFACE",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{api}}/test/helo_iface",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"test",
+								"helo_iface"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "HESSIAN_JAVA",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{api}}/test/hessian/java",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"test",
+								"hessian",
+								"java"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ADMIN",
+			"item": [
+				{
+					"name": "User",
+					"item": [
+						{
+							"name": "JSON",
+							"item": [
+								{
+									"name": "Select - Page",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Access-Key",
+												"type": "text",
+												"value": "1e071371-6ca0-11e9-b5aa-3c970ebf4a1e"
+											},
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"entity\": \"User\",\n    \"page\": {\n    \t\"index\": 1,\n    \t\"size\": 10,\n    \t\"count\": false\n    },\n    \"filter\": {\n    \t\"username__like\": \"admin\"\n    },\n    \"order\": [\"-createdAt\", \"id\"],\n    \"field\": [\"username\", \"role\"]\n}"
+										},
+										"url": {
+											"raw": "{{admin}}/select",
+											"host": [
+												"{{admin}}"
+											],
+											"path": [
+												"select"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Select - List",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Access-Key",
+												"type": "text",
+												"value": "ded99998-5588-11e9-93e8-3c970ebf4a1e"
+											},
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"entity\": \"User\",\n    \"start\": 0,\n    \"limit\": 10,\n    \"filter\": {\n    \t\"username__like\": \"admin\"\n    },\n    \"order\": [\"-createdAt\", \"id\"],\n    \"field\": [\"username\", \"role\"]\n}"
+										},
+										"url": {
+											"raw": "{{admin}}/select",
+											"host": [
+												"{{admin}}"
+											],
+											"path": [
+												"select"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Count",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Access-Key",
+												"type": "text",
+												"value": "1e071371-6ca0-11e9-b5aa-3c970ebf4a1e"
+											},
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"type": "text",
+												"value": "application/json",
+												"disabled": true
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"entity\": \"User\",\n    \"filter\": {\n    \t\"username__like\": \"admin\"\n    }\n}"
+										},
+										"url": {
+											"raw": "{{admin}}/count",
+											"host": [
+												"{{admin}}"
+											],
+											"path": [
+												"count"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get - Pk",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Access-Key",
+												"type": "text",
+												"value": "ded99998-5588-11e9-93e8-3c970ebf4a1e"
+											},
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"entity\": \"User\",\n    \"pk\": 1\n}"
+										},
+										"url": {
+											"raw": "{{admin}}/get",
+											"host": [
+												"{{admin}}"
+											],
+											"path": [
+												"get"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get - Filter",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Access-Key",
+												"type": "text",
+												"value": "3099ae57-5083-11e9-939e-3c970ebf4a1e"
+											},
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"entity\": \"User\",\n    \"filter\": {\n    \t\"username\": \"admin\"\n    }\n}"
+										},
+										"url": {
+											"raw": "{{admin}}/get",
+											"host": [
+												"{{admin}}"
+											],
+											"path": [
+												"get"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Map - Pk",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Access-Key",
+												"type": "text",
+												"value": "5979553A-E698-4AB5-8BB3-6A035AC57507"
+											},
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"entity\": \"User\",\n    \"pk\": [1, 2, 3],\n    \"field\": [\"id\", \"username\"],\n    \"order\": [\"-username\", \"id\"],\n    \"mapkey\": \"username\"\n}"
+										},
+										"url": {
+											"raw": "{{admin}}/map",
+											"host": [
+												"{{admin}}"
+											],
+											"path": [
+												"map"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Map - Filter",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Access-Key",
+												"type": "text",
+												"value": "3099ae57-5083-11e9-939e-3c970ebf4a1e"
+											},
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"entity\": \"User\",\n    \"filter\": {\n    \t\"id__in\": [1, 2, 3]\t\n    },\n    \"field\": [\"id\", \"username\"],\n    \"order\": [\"-username\", \"id\"],\n    \"mapkey\": \"username\"\n}"
+										},
+										"url": {
+											"raw": "{{admin}}/map",
+											"host": [
+												"{{admin}}"
+											],
+											"path": [
+												"map"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Create",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Access-Key",
+												"type": "text",
+												"value": "c6837fd9-1c45-498b-baf0-e39535af687d"
+											},
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"entity\": \"User\",\n    \"value\": {\n    \t\"username\": \"coba\",\n    \t\"fullname\": \"Coba Ya\",\n    \t\"password\": \"rahasia\",\n\t\t\"role\": 1,\n\t\t\"status\": 1,\n\t\t\"email\": \"xxx@coba.com\",\n\t\t\"phone\": \"08128982xxx\",\n\t\t\"address\": \"alamat\"\n    }\n}"
+										},
+										"url": {
+											"raw": "{{admin}}/save",
+											"host": [
+												"{{admin}}"
+											],
+											"path": [
+												"save"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update - Pk",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Access-Key",
+												"type": "text",
+												"value": "3099ae57-5083-11e9-939e-3c970ebf4a1e"
+											},
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"entity\": \"User\",\n    \"pk\": 9,\n    \"value\": {\n    \t\"username\": \"coba\",\n    \t\"fullname\": \"Coba Ganti\",\n    \t\"password\": \"rahasia\",\n\t\t\"role\": 1,\n\t\t\"status\": 1,\n\t\t\"email\": \"xxx@coba.com\",\n\t\t\"phone\": \"08128982xxx\",\n\t\t\"address\": \"alamat\"\n    }\n}"
+										},
+										"url": {
+											"raw": "{{admin}}/save",
+											"host": [
+												"{{admin}}"
+											],
+											"path": [
+												"save"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update - Multi Pk",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Access-Key",
+												"type": "text",
+												"value": "3099ae57-5083-11e9-939e-3c970ebf4a1e"
+											},
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"entity\": \"User\",\n    \"pk\": [2, 9],\n    \"value\": {\n    \t\"phone\": \"08128982xxx\",\n\t\t\"address\": \"alamat\"\n    }\n}"
+										},
+										"url": {
+											"raw": "{{admin}}/update",
+											"host": [
+												"{{admin}}"
+											],
+											"path": [
+												"update"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update - Filter",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Access-Key",
+												"type": "text",
+												"value": "c6837fd9-1c45-498b-baf0-e39535af687d"
+											},
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"entity\": \"User\",\n    \"filter\": {\n    \t\"id__in\": [2, 9]\t\n    },\n    \"value\": {\n    \t\"phone\": \"08123456789xx\",\n\t\t\"address\": \"alamat ganti lagi\"\n    }\n}"
+										},
+										"url": {
+											"raw": "{{admin}}/update",
+											"host": [
+												"{{admin}}"
+											],
+											"path": [
+												"update"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Delete - Pk",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Access-Key",
+												"type": "text",
+												"value": "3099ae57-5083-11e9-939e-3c970ebf4a1e"
+											},
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"entity\": \"User\",\n    \"pk\": 9\n}"
+										},
+										"url": {
+											"raw": "{{admin}}/delete",
+											"host": [
+												"{{admin}}"
+											],
+											"path": [
+												"delete"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Delete - Filter",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Access-Key",
+												"type": "text",
+												"value": "c6837fd9-1c45-498b-baf0-e39535af687d"
+											},
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"entity\": \"User\",\n    \"filter\": {\n    \t\"username__like\": \"coba\"\n    }\n}"
+										},
+										"url": {
+											"raw": "{{admin}}/delete",
+											"host": [
+												"{{admin}}"
+											],
+											"path": [
+												"delete"
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"_postman_isSubFolder": true
+						},
+						{
+							"name": "XML",
+							"item": [
+								{
+									"name": "Select - Page",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Access-Key",
+												"type": "text",
+												"value": "ded99998-5588-11e9-93e8-3c970ebf4a1e"
+											},
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"value": "application/xml",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "<object>\n\t<entity>User</entity>\n\t<page>\n\t\t<index>1</index>\n\t\t<size>10</size>\n\t\t<count>false</count>\n\t</page>\n\t<filter>\n\t\t<username__like>admin</username__like>\n\t</filter>\n\t<order>-createdAt</order>\n\t<order>id</order>\n\t<field>username</field>\n\t<field>role</field>\n</object>"
+										},
+										"url": {
+											"raw": "{{admin}}/select",
+											"host": [
+												"{{admin}}"
+											],
+											"path": [
+												"select"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Select - List",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Access-Key",
+												"type": "text",
+												"value": "ded99998-5588-11e9-93e8-3c970ebf4a1e"
+											},
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"value": "application/xml",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "<object>\n\t<entity>User</entity>\n\t<start>0</start>\n\t<limit>10</limit>\n\t<filter>\n\t\t<username__like>admin</username__like>\n\t</filter>\n\t<order>-createdAt</order>\n\t<order>id</order>\n\t<field>username</field>\n\t<field>role</field>\n</object>"
+										},
+										"url": {
+											"raw": "{{admin}}/select",
+											"host": [
+												"{{admin}}"
+											],
+											"path": [
+												"select"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get - Pk",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Access-Key",
+												"type": "text",
+												"value": "ded99998-5588-11e9-93e8-3c970ebf4a1e"
+											},
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"value": "application/xml",
+												"type": "text"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text",
+												"disabled": true
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "<object>\n\t<entity>User</entity>\n\t<pk>1</pk>\n</object>"
+										},
+										"url": {
+											"raw": "{{admin}}/get",
+											"host": [
+												"{{admin}}"
+											],
+											"path": [
+												"get"
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"_postman_isSubFolder": true
+						}
+					],
+					"_postman_isSubFolder": true
+				}
+			]
+		}
+	]
+}

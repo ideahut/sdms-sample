@@ -1,0 +1,9 @@
+.git/
+app/cache/*
+app/logs/*
+vendor/*
+composer
+composer.bat
+composer.sh
+composer.lock
+composer.phar
