@@ -1,2 +1,2 @@
 # sdms-sample
-Sample project for composer ideahut/sdms
+Sample project for composer <b>ideahut/sdms</b>
