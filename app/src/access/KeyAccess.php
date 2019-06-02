@@ -21,7 +21,6 @@ class KeyAccess
 
 	private static $PARAMETER_ACCESS_KEY	= "p_access";
 	private static $HEADER_ACCESS_KEY		= "Access-Key";
-	private static $ANNOTATION_NO_USER		= "NOUSER";	
 
 
 	private $controller;
@@ -58,10 +57,11 @@ class KeyAccess
 	/*
 	 * VALIDATE
 	 */	
-	public function validate(bool $is_public, ReflectionMethod $method = null) {
-		if ($is_public) {
-	    	return null;
-	    }
+	public function validate($access_rule, ReflectionMethod $method = null) {
+		if (isset($access_rule) && $access_rule->public === true) {
+			return null;
+		}
+
 		$request = $this->controller->getRequest();
 	    
 	    $key = $this->key();
@@ -85,11 +85,9 @@ class KeyAccess
 	        return Result::ERROR(Result::ERR_EXPIRED, "Access");
 	    }
 
-	    if (null !== $method) {
-	    	$annotation = ObjectUtil::scanAnnotation($method, self::$ANNOTATION_NO_USER);
-	    	if (!isset($annotation[self::$ANNOTATION_NO_USER]) && !isset($data->user)) {
-	    		return Result::ERROR("40", "User is not login");
-	    	}
+	    $must_login = isset($access_rule) && $access_rule->login === true;
+	    if ($must_login && !isset($data->user)) {
+	    	return Result::ERROR("40", "User is not login");
 	    }
 	    return null;	    
 	}

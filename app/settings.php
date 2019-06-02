@@ -116,6 +116,7 @@ return [
         Common::SETTING_APP_DIR => __DIR__,
         Common::SETTING_PUBLIC_DIR => __DIR__ . "/../public",
         Common::SETTING_NAMESPACE_DIR => ["\\App\\" => "src\\", "App\\" => "src\\"], 
+        Common::SETTING_FORMAT_SHOW_NULL => false,
         Common::SETTING_CORS_ORIGIN => "*",
         Common::SETTING_CORS_METHODS => "GET, POST, PUT, DELETE, OPTIONS",
         Common::SETTING_CORS_HEADERS => "X-Requested-With, Content-Type, Accept, Origin, Authorization, Access-Key",

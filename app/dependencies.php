@@ -1,6 +1,6 @@
 <?php
 use \Ideahut\sdms\Common;
-use Doctrine\Common\Annotations\AnnotationReader;
+
 
 // DIC configuration
 
@@ -34,7 +34,6 @@ $container[Common::SETTING_ENTITY_MANAGER] = function ($c) {
         false
     );
     $doctrine = \Doctrine\ORM\EntityManager::create($settings['doctrine']['connection'], $config);
-    AnnotationReader::addGlobalIgnoredName(Common::ANNOTATION_FORMAT);
     return $doctrine;
 };
 
@@ -44,3 +43,4 @@ $container[Common::SETTING_CACHE] = function ($c) {
 	$config = $settings[Common::SETTING_CACHE];
     return \Ideahut\sdms\cache\Cache::create($config);
 };
+

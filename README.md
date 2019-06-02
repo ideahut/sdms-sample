@@ -143,3 +143,9 @@ POSTGRES
    Ganti Current Value sesuai dengan ID terakhir yang ada di table. 
    Kasus ini terjadi karena query insert di query tool menyertakan ID, sehingga tidak auto increment.
    Akibatnya fungsi sequence tidak diupdate.
+
+
+TRIKS
+=====
+1. Tambah line berikut di index.php setelah vendor/autoload.php
+   \Doctrine\Common\Annotations\AnnotationRegistry::registerLoader('class_exists');

@@ -5,19 +5,21 @@ use \Ideahut\sdms\base\BaseController;
 use \Ideahut\sdms\object\Result;
 use \Ideahut\sdms\util\RequestUtil;
 
+use \App\entity\Access;
 use \App\entity\User;
+
+use \Ideahut\sdms\annotation as IDH;
 
 class AccessController extends BaseController
 {
 
 	/**
-     * KEY
-     *
-     * @DESCRIPTION Membuat atau meng-update Access Key.
-     * @DESCRIPTION Untuk memperpanjang yang lama, sertakan Access Key di header.
-     * @RETURN Entity::Result->Entity::Access
-     * @METHOD post, get
-     * @PUBLIC
+	 	@IDH\Document(
+     		description = "Membuat atau meng-update Access Key. <br/>Untuk memperpanjang yang lama, sertakan Access Key di header.",
+			result = {Result::class, Access::class}
+	 	)
+	 	@IDH\Method({"POST", "GET"})
+     	@IDH\Access(public = true)
      */
 	public function key() {
 		$access = $this->getAccess();
@@ -48,11 +50,11 @@ class AccessController extends BaseController
 	
 	
 	/**
-     * INFO
-     *
-     * @DESCRIPTION Mendapatkan data akses, seperti: user, dll.
-     * @RETURN Entity::Result->Entity::Access
-     * @METHOD post, get
+	 	@IDH\Document(
+     		description = "Mendapatkan data akses, seperti: user, dll.",
+			result = {Result::class, Access::class}
+	 	)
+	 	@IDH\Method({"POST", "GET"})
      */
 	public function info() {
 		$result = $this->getAccess()->data();
@@ -65,16 +67,17 @@ class AccessController extends BaseController
 	
 
 	/**
-	 * LOGIN
-	 * 
-	 * @DESCRIPTION Login
-	 * @PARAMETER username => Nama pengguna
-	 * @PARAMETER authcode => Kode otentikasi SHA256(AccessKey + username + SHA256(password))
-	 * @RETURN Entity::Result->Entity::Access
-	 * @METHOD post
-	 * @VALIDATOR AccessValidator->login
-	 * @NOUSER
-	 */
+	 	@IDH\Document(
+     		description = "Login dengan menyertakan Access Key",
+     		parameter = {
+				@IDH\Parameter(name = "username", description = "Nama pengguna", type = "string"),
+				@IDH\Parameter(name = "authcode", description = "Kode otentikasi SHA256(AccessKey + username + SHA256(password))", type = "string")
+     		},
+     		result = {Result::class, Access::class}
+	 	)
+	 	@IDH\Method({"POST"})
+	 	@IDH\Access(login = false)
+     */
 	public function login() {
 		$request = $this->getRequest();
 		if (($validator = RequestUtil::validate($this, __METHOD__)) !== null) return $validator;
@@ -110,12 +113,12 @@ class AccessController extends BaseController
 
 
 	/**
-	 * LOGOUT
-	 * 
-	 * @DESCRIPTION Logout dengan menyertakan Access Key	 
-	 * @RETURN Entity::Result->Entity::Access
-	 * @METHOD post, get	 
-	 */
+	 	@IDH\Document(
+     		description = "Logout dengan menyertakan Access Key",
+     		result = {Result::class, Access::class}
+	 	)
+	 	@IDH\Method({"POST", "GET"})
+     */
 	public function logout() {
 		$access = $this->getAccess();
 		$result = $access->create(null);
@@ -128,13 +131,13 @@ class AccessController extends BaseController
 
 
 	/**
-	 * RENEW
-	 * 
-	 * @DESCRIPTION Mengganti Access Key lama dengan yang baru
-	 * @RETURN Entity::Result->Entity::Access
-	 * @METHOD post, get	 
-	 * @NOUSER
-	 */
+	 	@IDH\Document(
+     		description = "Mengganti Access Key lama dengan yang baru",
+     		result = {Result::class, Access::class}
+	 	)
+	 	@IDH\Method({"POST", "GET"})
+	 	@IDH\Access(login = false)
+     */
 	public function renew() {
 		$access = $this->getAccess();
 		$access->revoke();

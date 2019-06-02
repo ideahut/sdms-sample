@@ -15,8 +15,7 @@ require __DIR__ . '/../vendor/autoload.php';
 //session_start();
 
 // Get settings
-// Ganti false jika ingin disimpan dicache
-if (extension_loaded('apcu') && false) {
+if (extension_loaded('apcu') && false) { // Ganti jadi true jika ingin disimpan dicache
 	$settings = apcu_fetch("___SETTINGS___");
 	if ($settings === false) {
 		$settings = require __DIR__ . '/../app/settings.php';
@@ -25,6 +24,11 @@ if (extension_loaded('apcu') && false) {
 } else {
 	$settings = require __DIR__ . '/../app/settings.php';
 }
+
+// Ideahut sdms init
+\Ideahut\sdms\Common::init([
+	"settings"=> $settings
+]);
 
 // Instantiate the app
 $app = new \Slim\App($settings);

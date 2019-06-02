@@ -36,16 +36,17 @@ use \App\iface\IFaceHandler;
 use \App\repository\AccessRepository;
 use \App\repository\UserRepository;
 
+use Ideahut\sdms\annotation as IDH;
+
+/**
+	@IDH\Document(ignore = true)
+ */
 class TestController extends BaseController 
 {
 	
 	/**
-     * HELO
-     *     
-     * @RETURN Entity::Result->OLEH
-     *
-     * @METHOD post, get
-     * @PUBLIC
+     * @IDH\Method({"POST", "GET"})
+     * @IDH\Access(public = true)
      */
 	public function helo() {
 		//$ref = new ReflectionClass(Access::class);
@@ -63,9 +64,6 @@ class TestController extends BaseController
 		//$obj->code=1;
 		//$t = ObjectUtil::formatObject($obj);
 		//var_dump($arr);
-
-		//$annots = ObjectUtil::scanAnnotation(Access::class, Common::ANNOTATION_FORMAT);
-		//var_dump($annots);
 
 		//$str = "return [a=>\"1\", \"b\"=>2];";
 		//$str = "a=\"test\"    &    b=1";
@@ -146,10 +144,8 @@ class TestController extends BaseController
 	/**
      * REPO
      *     
-     * @RETURN Entity::Result
-     *
-     * @METHOD post, get
-     * @PUBLIC
+     * @IDH\Method({"POST", "GET"})
+     * @IDH\Access(public = true)
      */
 	public function repo() {
 		$t = null;
@@ -235,11 +231,8 @@ class TestController extends BaseController
 
 	/**
      * HELO IFACE
-     *     
-     * @RETURN Entity::Result
-     *
-     * @METHOD post, get
-     * @PUBLIC
+     * @IDH\Method({"POST", "GET"})
+     * @IDH\Access(public = true)
      */
 	public function helo_iface() {
 		//$proxy = Proxy::newProxyInstance(iTest::class, new IFaceHandler());
@@ -269,10 +262,8 @@ class TestController extends BaseController
 	/**
      * HESSIAN JAVA
      *     
-     * @RETURN Entity::Result
-     *
-     * @METHOD post, get
-     * @PUBLIC
+     * @IDH\Method({"POST", "GET"})
+     * @IDH\Access(public = true)
      */
 	public function hessian__java() {
 		$options = new \HessianOptions();
@@ -286,40 +277,26 @@ class TestController extends BaseController
 
 
 	/**
-	 * REGISTER
+	 * ANNOTATION
 	 *
-	 * @DESCRIPTION Registrasi pengguna baru
-	 *
-	 * @BODY Entity::User
-	 *
-	 * @RETURN Entity::Result->Entity::User
-	 * 
-	 * @METHOD post
-	 * @PUBLIC
-	 * 
-	 * @VALIDATOR Constant.NAMESPACE_VALIDATOR_SHOP->AccountValidator::register
-	 *
+	 * @IDH\Method({"POST", "GET"})
+     * @IDH\Access(public = true)
 	 */
-	public function register() {
-		return Result::SUCCESS();
-	}
+	public function annotation() {
+		//$b=\Doctrine\Common\Annotations\AnnotationRegistry::loadAnnotationClass(\App\annotation\Formatter::class);
+    	//var_dump($b);$classAnnotations = $annotationReader->getClassAnnotations($reflectionClass);
+    	//\Doctrine\Common\Annotations\AnnotationRegistry::registerLoader('class_exists');
+    	//$reader = new AnnotationReader();
+		//$formatter = $reader->getClassAnnotation(new \ReflectionClass(TestObject::class), Formatter::class);
+		//var_dump($formatter);
+		//$classAnnotations = $reader->getClassAnnotations(new \ReflectionClass(TestObject::class));
+		//var_dump($classAnnotations);
 
-
-	/**
-	 * LOGIN
-	 * 
-	 * @DESCRIPTION Login
-	 *
-	 * @BODY Entity::User
-	 * @PARAMETER msisdn => Nomor HP
-	 * @PARAMETER authCode => Kode otentikasi SHA256(access key + msisdn + password)
-	 *
-	 * @RETURN Entity::Result->Entity::Access
-	 * 
-	 * @VALIDATOR AppConstant.NAMESPACE_VALIDATOR_SHOP->AccountValidator::login
-	 */
-	public function login() {
-		return Result::SUCCESS();
+		//$t = $reader->getClassAnnotation(new \ReflectionClass(TestController::class), IDH\Method::class);
+		//$t = ObjectUtil::scanAnnotation(new \ReflectionClass(TestController::class), IDH\Method::class);
+		//$t = $t[IDH\Method::class];
+		//var_dump(get_class($t));
+		return Result::SUCCESS($t);
 	}
 	
 }
