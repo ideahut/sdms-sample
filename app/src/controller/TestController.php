@@ -38,6 +38,8 @@ use \App\repository\UserRepository;
 
 use Ideahut\sdms\annotation as IDH;
 
+use \Ideahut\sdms\exception\ResultException;
+
 /**
 	@IDH\Document(ignore = true)
  */
@@ -84,13 +86,13 @@ class TestController extends BaseController
         //var_dump($dao->where());
         //var_dump(substr("1234", 0, -1));
 
-        //$dao = Test::objects($this);
+        //$dao = Test::dao($this);
         //$t = $dao->page(new Page(1, 2, true))->filter("name__like=co")->select();
         
         //$meta = $this->getEntityManager()->getClassMetadata(User::class);
         //var_dump($meta->fieldMappings['id']);
 
-        //$dao = Test::objects($this, $this->getLogger());
+        //$dao = Test::dao($this, $this->getLogger());
         //$t = $dao->map("id");
         //$t = new \App\access\AdminAccess(["a"=>1]);
         //var_dump($t);
@@ -121,7 +123,7 @@ class TestController extends BaseController
 		//$a = 1;
 		//$t = $a . " - ok";
 
-		//$t = Test::objects($this)->pk(1)->get();
+		//$t = Test::dao($this)->pk(1)->get();
 		//$t->name="ubah";
 		//$t->save($this);
 		//$c = Access::class;
@@ -297,6 +299,21 @@ class TestController extends BaseController
 		//$t = $t[IDH\Method::class];
 		//var_dump(get_class($t));
 		return Result::SUCCESS($t);
+	}
+
+	/**
+	 	VALIDATION
+	 
+	 	@IDH\Method({"POST", "GET"})
+     	@IDH\Access(public = true)
+     	@IDH\Validator(
+     		@IDH\ClassMethod(class = "App\validator\AccessValidator", method = "login")
+     	)	 
+	 */
+	public function validation() {
+		RequestUtil::validate($this);
+		$t = null;
+		return Result::SUCCESS($t);	
 	}
 	
 }

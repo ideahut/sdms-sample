@@ -129,7 +129,6 @@ return [
             [
                 Common::SETTING_PATH => "/api/[{path:.*}]",
                 Common::SETTING_CONTROLLER => $_PROJECT_NS_ . "\\controller\\",
-                Common::SETTING_VALIDATOR => $_PROJECT_NS_ . "\\validator\\",
                 Common::SETTING_RESPONSE => $_RESPONSE_,
                 Common::SETTING_SUFFIX => [
                     Common::SETTING_CONTROLLER => "Controller"

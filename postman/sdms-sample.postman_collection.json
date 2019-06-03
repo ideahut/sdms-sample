@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "213908e6-d3a5-44f8-985b-cf583b80e243",
+		"_postman_id": "63056921-60db-4626-9b13-bc9ca253007c",
 		"name": "sdms-sample",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -15,9 +15,8 @@
 						"header": [
 							{
 								"key": "Access-Key",
-								"value": "1e071371-6ca0-11e9-b5aa-3c970ebf4a1e",
-								"type": "text",
-								"disabled": true
+								"value": "d1d5fcce-8630-11e9-bc3c-3c970ebf4a1e",
+								"type": "text"
 							}
 						],
 						"body": {
@@ -44,7 +43,7 @@
 						"header": [
 							{
 								"key": "Access-Key",
-								"value": "1e071371-6ca0-11e9-b5aa-3c970ebf4a1e",
+								"value": "d1d5fcce-8630-11e9-bc3c-3c970ebf4a1e",
 								"type": "text"
 							},
 							{
@@ -78,7 +77,7 @@
 						"header": [
 							{
 								"key": "Access-Key",
-								"value": "1e071371-6ca0-11e9-b5aa-3c970ebf4a1e",
+								"value": "d1d5fcce-8630-11e9-bc3c-3c970ebf4a1e",
 								"type": "text"
 							}
 						],
@@ -92,7 +91,7 @@
 								},
 								{
 									"key": "authcode",
-									"value": "bba0cb98cffaf614c799f2576607d9bb5dddaf898f064eb70a6c6a6fb63fa147",
+									"value": "945d35d6724d07e412afdcc1eb626d20fef669e514f4974b6996e06852660d6a",
 									"type": "text"
 								}
 							]
@@ -117,7 +116,7 @@
 						"header": [
 							{
 								"key": "Access-Key",
-								"value": "3099ae57-5083-11e9-939e-3c970ebf4a1e",
+								"value": "d1d5fcce-8630-11e9-bc3c-3c970ebf4a1e",
 								"type": "text"
 							}
 						],
@@ -312,7 +311,7 @@
 											{
 												"key": "Access-Key",
 												"type": "text",
-												"value": "1e071371-6ca0-11e9-b5aa-3c970ebf4a1e"
+												"value": "d1d5fcce-8630-11e9-bc3c-3c970ebf4a1e"
 											},
 											{
 												"key": "Content-Type",
@@ -412,7 +411,7 @@
 											{
 												"key": "Access-Key",
 												"type": "text",
-												"value": "ded99998-5588-11e9-93e8-3c970ebf4a1e"
+												"value": "d1d5fcce-8630-11e9-bc3c-3c970ebf4a1e"
 											},
 											{
 												"key": "Content-Type",

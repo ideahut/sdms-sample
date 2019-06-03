@@ -75,17 +75,21 @@ class AccessController extends BaseController
      		},
      		result = {Result::class, Access::class}
 	 	)
+	 	@IDH\Validator(
+     		@IDH\ClassMethod(class = "App\validator\AccessValidator", method = "login")
+     	)
 	 	@IDH\Method({"POST"})
 	 	@IDH\Access(login = false)
      */
 	public function login() {
+		RequestUtil::validate($this);
+		
 		$request = $this->getRequest();
-		if (($validator = RequestUtil::validate($this, __METHOD__)) !== null) return $validator;
 
 		$username = $request->getParam("username");
 		$access   = $this->getAccess();
 
-		$dao  = User::objects($this);
+		$dao  = User::dao($this);
 		$user = $dao->filter(["username" => $username])->get();
 		if (!isset($user)) {
 			return Result::ERROR(Result::ERR_NOT_FOUND, "User");

@@ -155,7 +155,7 @@ class KeyAccess
 		
 		$key = $this->key();
 		$key = isset($key) ? trim($key) : "";		
-		$dao = Access::objects($controller->getEntityManager(), $controller->getLogger());
+		$dao = Access::dao($controller->getEntityManager(), $controller->getLogger());
 		$result = null;
 		if ($key === "" || $is_renew) {
 			$expiration = round(microtime(true) * 1000) + ($exp_in_sec * 1000);
@@ -220,7 +220,7 @@ class KeyAccess
 			return null;
 		}
 		return $cache->get(Project::CACHE_ACCESS, $key, function($args) {
-			$access = Access::objects($args[0], $args[1])->pk($args[2])->get();
+			$access = Access::dao($args[0], $args[1])->pk($args[2])->get();
 			if (isset($access)) {
 				// Buat Object Access baru untuk menghindari error serialize proxy ke cache
 				$result = new Access();
@@ -243,7 +243,7 @@ class KeyAccess
 			return false;
 		}
 		$cache->remove(Project::CACHE_ACCESS, $key);
-		$deleted = Access::objects($manager, $logger)->pk($key)->delete();
+		$deleted = Access::dao($manager, $logger)->pk($key)->delete();
 		return $deleted !== 0;
 	}
 
